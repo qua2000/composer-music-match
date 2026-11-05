@@ -4,37 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6edda">
-  <title>Composer & Music Match — Mozart</title>
+  <title>Composer &amp; Music Match — Mozart</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="app-shell">
     <header class="topbar">
       <div class="brand-mark" aria-hidden="true">♫</div>
-      <div><p class="eyebrow">LISTEN · LOOK · MATCH</p><h1>Composer &amp; Music Match</h1></div>
-      <button class="help-button" id="helpButton" aria-label="How to play" title="How to play">?</button>
+      <h1>Composer &amp; Music Match</h1>
+      <button class="help-button" id="helpButton" type="button"
+        aria-label="How to play" title="How to play">?</button>
     </header>
 
-    <section class="composer-panel" aria-label="Composer">
+    <section class="composer-panel" aria-label="Composer portrait">
       <img class="composer-portrait"
         src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Wolfgang-amadeus-mozart_1.jpg"
         alt="Portrait of Wolfgang Amadeus Mozart"
-        onerror="this.style.display='none';document.getElementById('portraitFallback').hidden=false">
-      <div class="portrait-fallback" id="portraitFallback" hidden>🎼</div>
-      <div class="composer-copy">
-        <p class="eyebrow">WHO WROTE THESE PIECES?</p>
-        <h2>Listen and choose</h2>
-        <p class="composer-hint" id="composerHint" aria-live="polite"></p>
-        <div class="composer-facts" id="composerFacts" hidden>
-          <strong>Wolfgang Amadeus Mozart</strong>
-          <span>1756–1791 · Austria</span>
-        </div>
+        onerror="this.hidden=true;document.getElementById('portraitFallback').hidden=false">
+      <div class="portrait-fallback" id="portraitFallback" hidden>♪</div>
+      <p class="composer-hint" id="composerHint" aria-live="polite"></p>
+      <div class="composer-facts" id="composerFacts" hidden>
+        <strong>Wolfgang Amadeus Mozart</strong>
+        <span>1756–1791 · Austria</span>
       </div>
-    </section>
-
-    <section class="instructions">
-      <span class="sound-icon" aria-hidden="true">◖))</span>
-      <span>Tap a picture to listen. Tap it again to stop. Choose the composer with the small badge.</span>
     </section>
 
     <section class="music-grid" id="musicGrid" aria-label="Four music choices">
@@ -44,59 +36,68 @@
           <span class="play-overlay" aria-hidden="true">▶</span>
           <span class="playing-label" aria-live="polite"></span>
         </button>
-        <button class="answer-button" type="button" aria-label="Choose this answer">✓</button>
+        <button class="answer-button" type="button" aria-label="Choose music choice one">✓</button>
         <div class="piece-info" hidden><strong>Eine kleine Nachtmusik</strong><span>1787</span></div>
       </article>
+
       <article class="music-card" data-id="turkish">
         <button class="art-button" type="button" aria-label="Play music choice two">
           <img src="images/music/mozart/piece02.png" alt="A golden ballroom dance">
           <span class="play-overlay" aria-hidden="true">▶</span>
           <span class="playing-label" aria-live="polite"></span>
         </button>
-        <button class="answer-button" type="button" aria-label="Choose this answer">✓</button>
+        <button class="answer-button" type="button" aria-label="Choose music choice two">✓</button>
         <div class="piece-info" hidden><strong>Turkish March (Alla Turca)</strong><span>c. 1783</span></div>
       </article>
+
       <article class="music-card" data-id="concerto">
         <button class="art-button" type="button" aria-label="Play music choice three">
           <img src="images/music/mozart/piece03.png" alt="A peaceful lake at sunset">
           <span class="play-overlay" aria-hidden="true">▶</span>
           <span class="playing-label" aria-live="polite"></span>
         </button>
-        <button class="answer-button" type="button" aria-label="Choose this answer">✓</button>
+        <button class="answer-button" type="button" aria-label="Choose music choice three">✓</button>
         <div class="piece-info" hidden><strong>Piano Concerto No. 21</strong><span>1785</span></div>
       </article>
+
       <article class="music-card" data-id="symphony">
         <button class="art-button" type="button" aria-label="Play music choice four">
           <img src="images/music/mozart/piece04.png" alt="A dramatic storm over a cottage">
           <span class="play-overlay" aria-hidden="true">▶</span>
           <span class="playing-label" aria-live="polite"></span>
         </button>
-        <button class="answer-button" type="button" aria-label="Choose this answer">✓</button>
+        <button class="answer-button" type="button" aria-label="Choose music choice four">✓</button>
         <div class="piece-info" hidden><strong>Symphony No. 40</strong><span>1788</span></div>
       </article>
     </section>
 
-    <p class="feedback" id="feedback" role="status" aria-live="polite">Find the music written by the composer.</p>
-    <div class="result-panel" id="resultPanel" hidden>
-      <div class="result-star">✦</div>
+    <p class="feedback" id="feedback" role="status" aria-live="polite"></p>
+
+    <section class="result-panel" id="resultPanel" hidden>
+      <div class="result-star" aria-hidden="true">✦</div>
       <h2>Excellent listening!</h2>
-      <p>You matched all four pieces to Mozart.</p>
+      <p>You matched the music to Mozart.</p>
       <button id="restartButton" class="primary-button" type="button">↻ Play again</button>
-    </div>
-    <footer><span>MOZART · CLASSICAL ERA</span><span id="timerText">60-second listening clips</span></footer>
+    </section>
+
+    <footer>
+      <span>MOZART · CLASSICAL ERA</span>
+      <span>60-second listening clips</span>
+    </footer>
   </main>
 
   <dialog id="helpDialog">
     <div class="dialog-content">
-      <button class="close-button" id="closeHelp" aria-label="Close">×</button>
+      <button class="close-button" id="closeHelp" type="button" aria-label="Close">×</button>
       <h2>How to play</h2>
-      <p>1. Tap any picture to listen.</p>
-      <p>2. Tap the same picture to stop.</p>
-      <p>3. Choose the correct music with the small round badge.</p>
-      <p>4. Try again until you find the answer!</p>
+      <p>1. Tap a picture to listen.</p>
+      <p>2. Tap it again to stop.</p>
+      <p>3. Choose the piece written by the composer.</p>
+      <p>4. Try again if your choice is incorrect.</p>
       <p class="dialog-note">Each music clip stops after 60 seconds.</p>
     </div>
   </dialog>
+
   <audio id="audioPlayer" preload="none"></audio>
   <script src="script.js"></script>
 </body>

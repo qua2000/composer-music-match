@@ -1,11 +1,136 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
-:root{--ink:#26364b;--muted:#6c7783;--paper:#fbf7ec;--gold:#d5a84f;--green:#4c8b70;--red:#bd6b63;--line:#e8dcc4}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 0%,#fff9e9 0,#f4eddf 55%,#e9e2d4 100%);color:var(--ink);font-family:'DM Sans',sans-serif;padding:24px}
-.app-shell{max-width:980px;margin:0 auto;background:rgba(255,253,247,.94);border:1px solid #e7dcc8;border-radius:28px;padding:clamp(18px,3vw,34px);box-shadow:0 18px 55px #594b3017}
-.topbar{display:flex;align-items:center;gap:14px;margin-bottom:22px}.brand-mark{width:46px;height:46px;border-radius:15px;background:#f1e4c7;color:#99712e;display:grid;place-items:center;font-size:28px}.eyebrow{font-size:10px;letter-spacing:.18em;font-weight:700;color:#9a7b43;margin:0 0 5px}.topbar h1{font:700 clamp(20px,3vw,28px) 'Playfair Display',serif;margin:0}.help-button{margin-left:auto;width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--ink);font-size:22px;font-weight:700;cursor:pointer}
-.composer-panel{display:grid;grid-template-columns:minmax(145px,230px) 1fr;gap:clamp(18px,3vw,34px);align-items:center;background:linear-gradient(120deg,#f4e9d2,#f8f4e9);border:1px solid #e8dcc4;border-radius:22px;padding:14px 22px 14px 14px;min-height:210px}.composer-portrait{width:100%;height:205px;object-fit:cover;object-position:center 22%;border-radius:15px;box-shadow:0 5px 18px #4e3b241f}.portrait-fallback{height:205px;border-radius:15px;background:#e8dcc4;display:grid;place-items:center;font-size:65px}.composer-copy h2{font:700 clamp(23px,4vw,36px) 'Playfair Display',serif;margin:0 0 8px}.composer-hint{min-height:22px;color:#a75f55;font-weight:700;margin:0}.composer-facts{display:flex;flex-direction:column;gap:4px;margin-top:12px;color:#3f765e}.composer-facts span{font-size:13px}
-.instructions{display:flex;align-items:center;gap:12px;margin:20px 2px 14px;color:#67717a;font-size:13px}.sound-icon{font-size:23px;color:#b48a42}
-.music-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.music-card{position:relative;min-width:0;border:2px solid #eee3d0;border-radius:20px;background:#fffdf8;padding:8px;transition:border-color .2s,transform .2s,box-shadow .2s}.music-card.shake{animation:shake .38s}.music-card.correct{border-color:var(--green);box-shadow:0 0 0 4px #4c8b7020}.art-button{display:block;width:100%;height:clamp(145px,22vw,220px);padding:0;border:0;border-radius:13px;overflow:hidden;background:#e7dcc7;position:relative;cursor:pointer}.art-button img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .35s}.art-button:hover img{transform:scale(1.035)}.play-overlay{position:absolute;left:12px;bottom:12px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#fffdf0ed;color:#39516a;box-shadow:0 2px 9px #0002}.playing-label{position:absolute;left:10px;bottom:10px;padding:5px 9px;border-radius:20px;background:#24364bdc;color:white;font-size:11px}.answer-button{position:absolute;right:15px;bottom:15px;top:auto;width:35px;height:35px;border-radius:50%;border:2px solid #fff;background:#f9f5e9;color:#9a8b70;font-size:16px;font-weight:700;box-shadow:0 2px 8px #0002;cursor:pointer}.answer-button:hover{background:#e8d7ae;color:#6d5120}.music-card.correct .answer-button{background:var(--green);color:white}.piece-info{display:flex;flex-direction:column;gap:3px;padding:10px 6px 4px;font-size:13px}.piece-info span{color:var(--muted);font-size:12px}.feedback{text-align:center;min-height:25px;margin:18px 0 8px;color:#66717b;font-weight:600;font-size:14px}.feedback.error{color:var(--red)}.feedback.success{color:var(--green)}.result-panel{text-align:center;padding:18px;background:#eff6f0;border-radius:18px;margin-top:12px}.result-star{font-size:30px;color:#c49a43}.result-panel h2{font:700 24px 'Playfair Display',serif;margin:5px}.result-panel p{color:#65736a}.primary-button{background:#3f765e;color:white;border:0;border-radius:24px;padding:11px 20px;font-weight:700;cursor:pointer}footer{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:15px;margin-top:22px;color:#a08b66;font-size:10px;letter-spacing:.12em}
-dialog{border:0;border-radius:20px;padding:0;max-width:420px;width:calc(100% - 32px);box-shadow:0 20px 70px #0003}dialog::backdrop{background:#17233188}.dialog-content{padding:26px;position:relative}.dialog-content h2{font:700 25px 'Playfair Display',serif;margin:0 0 15px}.dialog-content p{color:#596574;line-height:1.5}.dialog-note{font-size:12px;color:#9a7b43!important}.close-button{position:absolute;right:16px;top:12px;border:0;background:none;font-size:26px;cursor:pointer}
-@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
-@media(max-width:560px){body{padding:9px}.app-shell{padding:15px;border-radius:20px}.composer-panel{grid-template-columns:112px 1fr;padding:10px;gap:13px;min-height:150px}.composer-portrait,.portrait-fallback{height:145px}.composer-copy h2{font-size:22px}.music-grid{gap:9px}.music-card{padding:5px;border-radius:15px}.art-button{height:clamp(118px,35vw,170px)}.answer-button{width:31px;height:31px;right:10px;bottom:10px;top:auto}.play-overlay{width:32px;height:32px;left:8px;bottom:8px}.instructions{font-size:12px;align-items:flex-start}.piece-info{font-size:11px;padding:8px 4px 3px}footer{font-size:8px}}
+
+:root {
+  --ink: #26364b;
+  --muted: #6c7783;
+  --paper: #fffdf7;
+  --gold: #d5a84f;
+  --green: #397b5d;
+  --red: #bd6259;
+  --line: #e8dcc4;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+body {
+  margin: 0; min-height: 100vh; padding: 22px;
+  color: var(--ink);
+  background: radial-gradient(circle at 15% 0%, #fff9e9 0, #f4eddf 55%, #e9e2d4 100%);
+  font-family: 'DM Sans', sans-serif;
+}
+.app-shell {
+  max-width: 900px; margin: 0 auto; padding: clamp(18px, 3vw, 32px);
+  background: rgba(255,253,247,.96); border: 1px solid #e7dcc8;
+  border-radius: 26px; box-shadow: 0 18px 55px #594b3017;
+}
+.topbar { display:flex; align-items:center; gap:13px; margin-bottom:20px; }
+.brand-mark {
+  width:42px; height:42px; flex:0 0 42px; border-radius:14px;
+  background:#f1e4c7; color:#99712e; display:grid; place-items:center; font-size:26px;
+}
+.topbar h1 { margin:0; font:700 clamp(21px,3vw,29px) 'Playfair Display',serif; }
+.help-button {
+  margin-left:auto; width:38px; height:38px; border:1px solid var(--line);
+  border-radius:50%; background:#fff; color:var(--ink); font-size:21px;
+  font-weight:700; cursor:pointer;
+}
+.composer-panel {
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+  gap:10px; padding:18px 16px 16px; margin-bottom:18px;
+  background:linear-gradient(120deg,#f4e9d2,#f8f4e9);
+  border:1px solid var(--line); border-radius:20px;
+}
+.composer-portrait {
+  display:block; width:min(100%, 300px); height:clamp(245px, 34vw, 330px);
+  object-fit:cover; object-position:center 22%; border-radius:15px;
+  box-shadow:0 6px 20px #4e3b2430;
+}
+.portrait-fallback {
+  width:min(100%,300px); height:280px; border-radius:15px;
+  background:#e8dcc4; display:grid; place-items:center; font-size:76px;
+}
+.composer-hint { min-height:0; margin:0; color:var(--red); font-size:15px; font-weight:700; }
+.composer-hint:empty { display:none; }
+.composer-facts { display:flex; flex-direction:column; gap:3px; color:var(--green); margin-top:2px; }
+.composer-facts strong { font:700 clamp(18px,2.5vw,22px) 'Playfair Display',serif; }
+.composer-facts span { font-size:15px; }
+
+.music-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:15px; }
+.music-card {
+  position:relative; min-width:0; padding:8px; border:2px solid #eee3d0;
+  border-radius:18px; background:#fffdf8;
+  transition:border-color .2s, transform .2s, box-shadow .2s;
+}
+.music-card.shake { animation:shake .38s; }
+.music-card.correct { border-color:var(--green); box-shadow:0 0 0 4px #4c8b7020; }
+.art-button {
+  display:block; position:relative; width:100%; height:clamp(145px,22vw,220px);
+  padding:0; border:0; border-radius:12px; overflow:hidden;
+  background:#e7dcc7; cursor:pointer;
+}
+.art-button img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .35s; }
+.art-button:hover img { transform:scale(1.035); }
+.play-overlay {
+  position:absolute; left:11px; bottom:11px; width:40px; height:40px;
+  border-radius:50%; display:grid; place-items:center; background:#fffdf0ed;
+  color:#39516a; box-shadow:0 2px 9px #0002; font-size:17px;
+}
+.playing-label {
+  position:absolute; left:58px; bottom:17px; padding:4px 8px;
+  border-radius:18px; background:#24364bdc; color:white; font-size:11px;
+}
+.answer-button {
+  position:absolute; right:13px; top:13px; width:46px; height:46px;
+  border-radius:50%; border:3px solid #fff; background:#f8efd9; color:#80652f;
+  font-size:25px; line-height:1; font-weight:800; box-shadow:0 3px 10px #0003;
+  cursor:pointer; transition:transform .15s, background .15s, color .15s;
+}
+.answer-button:hover { transform:scale(1.09); background:#e8d7ae; color:#5c4318; }
+.music-card.correct .answer-button { background:var(--green); color:white; }
+.piece-info { display:flex; flex-direction:column; gap:4px; padding:11px 7px 5px; text-align:left; }
+.piece-info strong { font-size:clamp(15px,1.8vw,18px); line-height:1.3; }
+.piece-info span { color:var(--muted); font-size:14px; }
+.feedback { min-height:22px; margin:15px 0 4px; text-align:center; color:#66717b; font-size:14px; font-weight:600; }
+.feedback.error { color:var(--red); }
+.feedback.success { color:var(--green); }
+.result-panel { margin-top:12px; padding:18px; border-radius:17px; background:#eff6f0; text-align:center; }
+.result-star { color:#c49a43; font-size:30px; }
+.result-panel h2 { margin:5px; font:700 24px 'Playfair Display',serif; }
+.result-panel p { color:#65736a; }
+.primary-button { padding:11px 22px; border:0; border-radius:24px; background:#3f765e; color:white; font-weight:700; cursor:pointer; }
+footer {
+  display:flex; justify-content:space-between; gap:10px; margin-top:20px;
+  padding-top:14px; border-top:1px solid var(--line); color:#a08b66;
+  font-size:10px; letter-spacing:.12em;
+}
+dialog { width:calc(100% - 32px); max-width:420px; padding:0; border:0; border-radius:20px; box-shadow:0 20px 70px #0003; }
+dialog::backdrop { background:#17233188; }
+.dialog-content { position:relative; padding:26px; }
+.dialog-content h2 { margin:0 0 15px; font:700 25px 'Playfair Display',serif; }
+.dialog-content p { color:#596574; line-height:1.5; }
+.dialog-note { font-size:12px; color:#9a7b43 !important; }
+.close-button { position:absolute; right:16px; top:12px; border:0; background:none; font-size:26px; cursor:pointer; }
+@keyframes shake {
+  0%,100%{transform:translateX(0)} 20%{transform:translateX(-7px)}
+  40%{transform:translateX(7px)} 60%{transform:translateX(-5px)} 80%{transform:translateX(5px)}
+}
+@media (max-width:560px) {
+  body { padding:8px; }
+  .app-shell { padding:13px; border-radius:19px; }
+  .topbar { gap:9px; margin-bottom:13px; }
+  .brand-mark { width:36px; height:36px; flex-basis:36px; }
+  .topbar h1 { font-size:21px; }
+  .composer-panel { padding:13px 10px; gap:8px; margin-bottom:12px; }
+  .composer-portrait { width:min(82%,270px); height:clamp(220px,64vw,285px); }
+  .portrait-fallback { height:230px; }
+  .music-grid { gap:8px; }
+  .music-card { padding:5px; border-radius:14px; }
+  .art-button { height:clamp(112px,34vw,170px); }
+  .answer-button { width:40px; height:40px; top:9px; right:9px; font-size:22px; }
+  .play-overlay { width:33px; height:33px; left:7px; bottom:7px; }
+  .playing-label { left:46px; bottom:12px; font-size:9px; }
+  .piece-info { padding:8px 4px 3px; }
+  .piece-info strong { font-size:14px; }
+  .piece-info span { font-size:13px; }
+  footer { font-size:8px; letter-spacing:.08em; }
+}
